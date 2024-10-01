@@ -3,7 +3,8 @@
 static void Main()
 {
     PrintMenu();
-    InputOption();
+    int option = InputOption();
+    GetMessage(option);
 }
 
 static void PrintMenu()
@@ -18,44 +19,50 @@ static void PrintMenu()
 
 }
 
-static void InputOption()
+static int InputOption()
 {
-    string optionName = "";
-
     try
     {
 
-        int option = Convert.ToInt32((Console.ReadLine()));
-
-        switch (option)
-        {
-            case 0:
-                break;
-            case 1:
-                optionName = ("Bonjour");
-                break;
-            case 2:
-                optionName = ("Hola");
-                break;
-            case 3:
-                optionName = ("Hallo");
-                break;
-            case 4:
-                optionName = ("Ciao");
-                break;
-            default:
-                Console.WriteLine("Invalid input");
-                break;
-        }
-
-        Console.WriteLine(optionName);
+        int option = Convert.ToInt32(Console.ReadLine());
+        return option;
     }
     catch (FormatException)
     {
         Console.WriteLine("Invalid input. Please enter a number.");
+        return -1;
     }
     catch (Exception ex)
     {
         Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+        return -1;
     }
+  
+}
+
+static void GetMessage(int option)
+{
+    string optionName = "";
+
+    switch (option)
+    {
+        case 0:
+            break;
+        case 1:
+            optionName = ("Bonjour");
+            break;
+        case 2:
+            optionName = ("Hola");
+            break;
+        case 3:
+            optionName = ("Hallo");
+            break;
+        case 4:
+            optionName = ("Ciao");
+            break;
+        default:
+            Console.WriteLine("Invalid input");
+            break;
+    }
+    Console.WriteLine(optionName);
 }
