@@ -84,4 +84,10 @@ static void Task5()
 
     Console.WriteLine(titleCase);
 
+    string[] words = str.Split(new char[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+    int wordCount = words.Length;
+
+    Console.WriteLine($"Number of words = {wordCount}");
+
 }
