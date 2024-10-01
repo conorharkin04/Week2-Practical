@@ -1,4 +1,7 @@
-﻿Main();
+﻿//Main();
+using System.Globalization;
+
+Task5();
 
 static void Main()
 {
@@ -69,4 +72,16 @@ static void GetMessage(int option)
             break;
     }
     Console.WriteLine(optionName);
+}
+
+static void Task5()
+{
+    Console.WriteLine("Enter a string");
+    string str = Console.ReadLine();
+
+    TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
+    string titleCase = textInfo.ToTitleCase(str);
+
+    Console.WriteLine(titleCase);
+
 }
