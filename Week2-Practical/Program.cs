@@ -2,9 +2,13 @@
 
 static void Main()
 {
-    PrintMenu();
-    int option = InputOption();
-    GetMessage(option);
+    int option;
+    do
+    {
+        PrintMenu();
+        option = InputOption();
+        GetMessage(option);
+    } while (option != 0);
 }
 
 static void PrintMenu()
